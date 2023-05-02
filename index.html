@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+  
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <applet code="MeuCodigoJava.class" width="300" height="300"></applet>
+    
+</head>
+<body>
+   
+    <div class="search-bar">
+        <input type="text" placeholder="Pesquisar produtos" id="search-input">
+        <button id="search-button">Pesquisar</button>
+    </div>
+     <header>
+        <div class="slideshow">
+        <a href="https://google.com" target="_blank"
+        ><img src="./img/s camera.png" style="max-width: 100%;
+        "></a>
+        <a href="https://shopee.com" target="_blank"
+        ><img src="./img/s cozinha.png" style="max-width: 100%;"></a>
+        <a href="https://aliexpress.com" target="_blank"
+        ><img src="./img/s fone.png" style="max-width: 100%;"></a>
+        <a href="https://youtube.com" target="_blank"
+        ><img src="./img/teste.png" style="max-width: 100%;"></a>
+     </div>
+    </header>
+   
+    <main>
+        <div class="product">
+            <a href="https://shope.ee/1L9yTpRZcA" target="_blank" style="text-decoration:none; color:inherit;">
+            <img src="./img/triturador.png" alt="triturador">
+            <h2>001</h2>
+            <h2>Processador De Alimentos Manual</h2>
+            <p>Mini Processador De Alimentos Manual Triturador e Cortador de Temperos Com 3 Lâminas 500ml</p></a>
+            
+        </div>
+        <div class="product">
+            <a href="https://shope.ee/1L9yTpRZcA" target="_blank" style="text-decoration:none; color:inherit;">
+            <img src="./img/triturador.png" alt="triturador">
+            <h2>001</h2>
+            <h2>Processador De Alimentos Manual</h2>
+            <p>Mini Processador De Alimentos Manual Triturador e Cortador de Temperos Com 3 Lâminas 500ml</p></a>
+            
+        </div>
+        <script>
+            var slideIndex = 0;
+            showSlides();
+    
+            function showSlides() {
+                var i;
+                var slides = document.getElementsByClassName("slideshow")[0].getElementsByTagName("img");
+                for (i = 0; i < slides.length; i++) {
+                    slides[i].style.display = "none";
+                }
+                slideIndex++;
+                if (slideIndex > slides.length) {slideIndex = 1}
+                slides[slideIndex-1].style.display = "block";
+                setTimeout(showSlides, 3000); // Change image every 3 seconds
+            }
+        </script>
+       
+        
+       
+    </main>
+    
+
+
+
+    <script>
+        const searchButton = document.getElementById('search-button');
+        const searchInput = document.getElementById('search-input');
+        const products = document.querySelectorAll('.product');
+    
+        searchButton.addEventListener('click', () => {
+            const searchTerm = searchInput.value.toLowerCase();
+    
+            products.forEach(product => {
+                const title = product.querySelector('h2').textContent.toLowerCase();
+                const description = product.querySelector('p').textContent.toLowerCase();
+    
+                if (title.includes(searchTerm) || description.includes(searchTerm)) {
+                    product.style.display = 'block';
+                } else {
+                    product.style.display = 'none';
+                }
+            });
+        });
+    </script>
+
+
+</body>
+</html>
